@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/max-autos/static/css/main.a727cfe0.css",
-    "main.js": "/max-autos/static/js/main.8d3f855f.js",
+    "main.js": "/max-autos/static/js/main.377487d2.js",
     "index.html": "/max-autos/index.html",
     "main.a727cfe0.css.map": "/max-autos/static/css/main.a727cfe0.css.map",
-    "main.8d3f855f.js.map": "/max-autos/static/js/main.8d3f855f.js.map"
+    "main.377487d2.js.map": "/max-autos/static/js/main.377487d2.js.map"
   },
   "entrypoints": [
     "static/css/main.a727cfe0.css",
-    "static/js/main.8d3f855f.js"
+    "static/js/main.377487d2.js"
   ]
 }
