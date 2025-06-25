@@ -5,10 +5,10 @@ import Product from "./Product";
 import About from "./About";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import { motion } from "framer-motion";
 
 function Home() {
   const [showNavbar, setShowNavbar] = useState(false);
-
 
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
@@ -21,7 +21,12 @@ function Home() {
   };
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <Navbar
         productRef={productRef}
         contactRef={contactRef}
@@ -37,12 +42,25 @@ function Home() {
         scrollToSection={scrollToSection}
         contactRef={contactRef}
         productRef={productRef}
+        showNavbar={showNavbar}
+        setShowNavbar={setShowNavbar}
       />
-      <Product productRef={productRef} />
+      <Product
+        productRef={productRef}
+        showNavbar={showNavbar}
+        setShowNavbar={setShowNavbar}
+      />
       <About aboutRef={aboutRef} />
       <Contact contactRef={contactRef} />
-      <Footer footerRef={footerRef} />
-    </div>
+      <Footer
+        productRef={productRef}
+        contactRef={contactRef}
+        aboutRef={aboutRef}
+        homeRef={homeRef}
+        footerRef={footerRef}
+        scrollToSection={scrollToSection}
+      />
+    </motion.div>
   );
 }
 

@@ -11,7 +11,7 @@ function Cart() {
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="bg-white opacity-95 p-4 rounded-md shadow-md">
+    <div className="bg-white opacity-95 p-4 rounded-md shadow-md mt-20 z-10 ">
       <div className="flex justify-between items-center mb-3">
         <h3 className="text-xl text-red-500 font-bold">
           Your Cart ({totalQuantity})
@@ -25,7 +25,7 @@ function Cart() {
         <div className="text-gray-500 flex flex-col justify-center items-center gap-2 mt-8">
           <h2 className="text-2xl font-bold mb-4">Your Cart is Empty</h2>
           <img
-            src="/images/illustration-empty-cart.svg"
+            src={`${process.env.PUBLIC_URL}/images/illustration-empty-cart.svg`}
             alt="empty cart"
             className="w-32"
           />
@@ -43,7 +43,7 @@ function Cart() {
               >
                 <div className="flex items-center gap-2">
                   <img
-                    src={`/images/${item.image}`}
+                    src={`${process.env.PUBLIC_URL}/images/${item.image}`}
                     alt={item.name}
                     className="w-16 object-cover rounded"
                   />
@@ -83,9 +83,9 @@ function Cart() {
             >
               Clear Cart
             </button>
-            <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm">
+            <Link to='/confirmOrder' className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm">
               Confirm Order
-            </button>
+            </Link>
           </div>
         </>
       )}

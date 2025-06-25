@@ -1,16 +1,18 @@
 import Home from "./components/Home";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductDetail from "./components/ProductDetails";
 import Cart from './components/Cart'
+import ConfirmOrder from "./components/ConfirmOrder";
 
 function App() {
   return (
     <div className="App">
-     <Router>
+     <Router basename="/max-autos">
       <Routes>
         <Route path="/" element ={<Home/>}/>
         <Route path="/product/:id" element ={<ProductDetail/>}/>
         <Route path="/cart" element ={<Cart/>}/>
+        <Route path="/confirmOrder" element ={<ConfirmOrder/>}/>
 
       </Routes>
      </Router>

@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
-import { FaCar } from "react-icons/fa";
+import { FaCar, FaWhatsapp} from "react-icons/fa";
 import products from "../product"; // Ensure this exports categorized object
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import { motion } from "framer-motion";
+import MessageForm from "./MessageForm";
 
-function Product({ productRef }) {
+function Product({ productRef, setShowNavbar }) {
   const { addToCart, setShowCart } = useContext(CartContext);
   const [showCategory, setShowCategory] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -25,7 +26,11 @@ function Product({ productRef }) {
     <section
       ref={productRef}
       className="flex sm:flex-row flex-col-reverse bg-gray-50 py-12 px-2 md:px-10 gap-3"
-      onClick={() => setShowCart(false)}
+      onClick={() => {
+        setShowCart(false);
+        setShowCategory(false);
+        setShowNavbar(false)
+      }}
     >
       <div className="sm:w-4/5 w-full">
         <div className="relative flex justify-between bg-blue-100 py-3 px-4 mb-10">
@@ -41,7 +46,7 @@ function Product({ productRef }) {
               }}
               className="text-lg font-semibold text-blue-700 border border-blue-500 px-4 py-2 rounded hover:bg-white"
             >
-              {selectedCategory || "All Cars"}
+              {selectedCategory || "Categories"}
             </button>
 
             {showCategory && (
@@ -82,11 +87,11 @@ function Product({ productRef }) {
                 className="flex flex-col items-center justify-center px-4 flex-grow"
               >
                 <img
-                  src={`/images/${item.image}`}
+                  src={`${process.env.PUBLIC_URL}/images/${item.image}`}
                   alt={item.name}
                   className="w-full object-cover rounded-lg mb-4"
                 />
-                <h2 className="font-bold text-xl text-gray-900 w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                <h2 className="font-bold text-gray-900 w-full overflow-hidden whitespace-nowrap text-ellipsis">
                   {item.name}
                 </h2>
               </Link>
@@ -96,36 +101,44 @@ function Product({ productRef }) {
                   onClick={() => addToCart(item)}
                   className="flex-1 bg-green-600 hover:bg-green-500 text-white font-semibold px-2 py-2 rounded-lg text-sm transition"
                 >
-                  Add to Cart
+                  Add a Wishlist
                 </button>
 
                 <Link
                   to={`product/${item.id}`}
                   className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-2 py-2 rounded-lg text-sm transition text-center"
                 >
-                  View Product
+                  View Details
                 </Link>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-      <div className="sm:w-1/5 w-full">
+      <div className="sm:w-1/3 w-full">
         <div className=" flex flex-col gap-3 w-full p-3 border-4 border-blue-100 ">
-        <h1 className="text-xl font-extrabold">🚘 Max Auto’s</h1>
-       <motion.p
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6, ease: "easeOut" }} className="text-sm">
-          At Max Auto’s, we specialize in imported cars — both brand new and
-          foreign used (Tokunbo) — carefully selected to meet your taste, style,
-          and budget. Whether you’re looking for durability, luxury, or everyday
-          comfort, we’ve got the perfect ride just for you. We also offer
-          genuine motor parts for top car brands, ensuring your ride stays
-          smooth and reliable.
-        </motion.p>
+          <h1 className="text-xl font-extrabold">🚘 Max Auto’s</h1>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-sm"
+          >
+            At Max Auto’s, we specialize in imported cars — both brand new and
+            foreign used (Tokunbo) — carefully selected to meet your taste,
+            style, and budget. Whether you’re looking for durability, luxury, or
+            everyday comfort, we’ve got the perfect ride just for you. We also
+            offer genuine motor parts for top car brands, ensuring your ride
+            stays smooth and reliable.
+          </motion.p>
+        </div>
+        <div className="hidden sm:block p-3 ">
+          <MessageForm/>
+        </div>
       </div>
+      <div className="right-4 bottom-10 fixed z-10">
+        <a href="" className="flex gap-1 items-center font-extrabold"><span >Customer Service </span> <FaWhatsapp className="text-5xl text-green-600"/></a>
       </div>
     </section>
   );

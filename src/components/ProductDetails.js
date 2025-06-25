@@ -50,7 +50,7 @@ function ProductDetail() {
       <div className=" flex items-center p-8 max-w-4xl mx-auto h-screen">
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <img
-            src={`/images/${product.image}`}
+            src={`${process.env.PUBLIC_URL}/images/${product.image}`}
             alt={product.name}
             className="w-1/2 object-cover rounded-md"
           />

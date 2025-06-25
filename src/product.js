@@ -76,6 +76,13 @@ const product = {
       description: "The future-ready Camry with advanced safety tech and a refined cabin experience.",
       image: "2025-toyota-camry.jpeg",
     },
+    {
+      id: 19,
+      name: "Toyota Camry LE",
+      feature: "2.5L Dynamic Force engine, LED DRLs, 8-way power driver seat",
+      description: "The LE model offers a great mix of comfort, performance, and efficiency at an affordable price point.",
+      image: "camry-le.jpg",
+    },
   ],
   RAV4: [
     {
@@ -90,7 +97,34 @@ const product = {
       name: "2023 Toyota RAV4 Interior Design",
       feature: "Premium interior trim, Dual-zone AC, Digital rearview mirror",
       description: "Sophisticated interior features with the flexibility and reliability of the RAV4 lineup.",
-      image: "2023-Toyota-Rav4.jpg",
+      image: "2023-Toyota-RAV4.jpg",
+    },
+  ],
+  Ford: [
+    {
+      id: 20,
+      name: "Ford SE",
+      feature: "Turbocharged EcoBoost engine, SYNC 3 infotainment, Rearview camera",
+      description: "A sleek and compact sedan that offers responsive handling and practical comfort for daily use.",
+      image: "ford1.jpg",
+    },
+  ],
+  Siena: [
+    {
+      id: 21,
+      name: "Siena 2016",
+      feature: "V6 engine, 8-passenger seating, Dual sliding doors",
+      description: "Spacious and family-friendly, the 2016 Sienna is ideal for road trips and daily school runs.",
+      image: "siena1.jpg",
+    },
+  ],
+  Venza: [
+    {
+      id: 22,
+      name: "Venza",
+      feature: "Hybrid powertrain, All-wheel drive, 12.3-inch touchscreen",
+      description: "A stylish crossover SUV that blends Toyota’s latest hybrid tech with upscale comfort and design.",
+      image: "venza4.jpg",
     },
   ],
   "4Runner": [
