@@ -41,9 +41,9 @@ function Header({ homeRef, setShowNavbar, contactRef, scrollToSection, }) {
           setShowNavbar(false);
         }}
       >
-        <h1 className="text-4xl text-white font-extrabold drop-shadow-lg">
-          🚘 MAX AUTO’S 
-        </h1><small className="text-white font-bold"> A Subsidiary of OJIAKAANU NIG LTD (RC 1047355)</small>
+        <h1 className="text-4xl text-white font-extrabold drop-shadow-lg mt-7 sm:mt-0">
+          MAX AUTO’S 
+        </h1><small className="text-xl text-center text-white font-bold"> A Subsidiary of OJIAKAANU NIG LTD (RC 1047355)</small>
         <span className="text-lg text-white drop-shadow-md">
           we deliver nation wide
         </span>

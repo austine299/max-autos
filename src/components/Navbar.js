@@ -31,10 +31,10 @@ function Navbar({
       <div className="flex justify-between items-center h-20 px-6 sm:px-12">
         {/* Logo */}
         <button
-          className="text-2xl font-extrabold text-blue-600 tracking-wide"
+          className="w-20 text-blue-600 tracking-wide"
           onClick={() => scrollToSection(homeRef)}
         >
-          🚘 MAX AUTO<span className="text-gray-800">’S</span>
+          <img src={`${process.env.PUBLIC_URL}/images/logo.jpg`}  className="rounded-full"/>
         </button>
 
         {/* Desktop Navigation */}

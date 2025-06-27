@@ -17,9 +17,12 @@ const Footer = ({ footerRef, homeRef, contactRef, aboutRef, productRef, scrollTo
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* About */}
         <div>
-          <h2 className="text-xl font-bold mb-4">
-            🚘 Contact Ojiakaanu Nig. Ltd
-          </h2>
+          <button
+          className="w-20 text-blue-600 tracking-wide "
+          onClick={() => scrollToSection(homeRef)}
+        >
+          <img src={`${process.env.PUBLIC_URL}/images/logo.jpg`} className="rounded-full"/>
+        </button>
           <p className="text-gray-300">
             Your trusted plug for quality imported vehicles and genuine motor
             parts. Ride in comfort, class, and confidence with Max Auto's.
