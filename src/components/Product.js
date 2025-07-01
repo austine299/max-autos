@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FaCar, FaWhatsapp } from "react-icons/fa";
-import products from "../product"; // Ensure this exports categorized object
+import products from "../product";
+import autoParts from "../autoparts"; // Import auto parts separately
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import { motion } from "framer-motion";
@@ -9,16 +10,22 @@ import MessageForm from "./MessageForm";
 function Product() {
   const { addToCart, setShowCart, productRef, setShowNavbar } =
     useContext(CartContext);
+
   const [showCategory, setShowCategory] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null); // Label for dropdown
+  const [activeCategory, setActiveCategory] = useState(null); // Actual products to display
 
-  // If a category is selected, show only its products, else show all
-  const displayedProducts = selectedCategory
-    ? products[selectedCategory] || []
-    : Object.values(products).flat();
+  // Display products based on activeCategory
+  const displayedProducts = activeCategory
+    ? activeCategory === "Auto Parts"
+      ? autoParts
+      : products[activeCategory] || []
+    : Object.values(products).flat().concat(autoParts);
 
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
+  // Handle category selection
+  const handleCategorySelect = (category, updateLabel = true) => {
+    setActiveCategory(category); // Always update products
+    if (updateLabel) setSelectedCategory(category); // Update label only if needed
     setShowCategory(false);
     setShowCart(false);
   };
@@ -33,16 +40,19 @@ function Product() {
         setShowNavbar(false);
       }}
     >
+      {/* Product List */}
       <div className="sm:w-4/5 w-full">
         <div className="relative flex justify-between bg-blue-100 py-3 px-4 mb-10">
           <h1 className="sm:text-3xl text-xl font-extrabold text-gray-800 flex items-center gap-3">
             <FaCar className="text-blue-600" /> Car Stand
           </h1>
 
-          <div className="relative">
+          {/* Category Buttons */}
+          <div className="relative flex gap-3">
+            {/* Dropdown trigger */}
             <button
               onClick={(e) => {
-                e.stopPropagation(); // prevent click from bubbling
+                e.stopPropagation();
                 setShowCategory(!showCategory);
               }}
               className="text-lg font-semibold text-blue-700 border border-blue-500 px-4 py-2 rounded hover:bg-white"
@@ -50,9 +60,21 @@ function Product() {
               {selectedCategory || "Categories"}
             </button>
 
+            {/* Auto Parts - no label change */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleCategorySelect("Auto Parts", false);
+              }}
+              className="text-lg font-semibold text-blue-700 border border-blue-500 px-4 py-2 rounded hover:bg-white"
+            >
+              Auto Parts
+            </button>
+
+            {/* Dropdown menu */}
             {showCategory && (
-              <div className="flex flex-col absolute w-44 -right-4 mt-2 bg-white shadow-lg rounded-md overflow-hidden z-10 p-5">
-                {Object.keys(products).map((category) => (
+              <div className="flex flex-col absolute w-44 -right-4 top-12 mt-2 bg-white shadow-lg rounded-md overflow-hidden z-10 p-5">
+                {[...Object.keys(products), "Auto Parts"].map((category) => (
                   <button
                     key={category}
                     onClick={() => handleCategorySelect(category)}
@@ -122,8 +144,10 @@ function Product() {
           )}
         </div>
       </div>
+
+      {/* Sidebar */}
       <div className="sm:w-1/3 w-full">
-        <div className=" flex flex-col gap-3 w-full p-3 border-4 border-blue-100 ">
+        <div className="flex flex-col gap-3 w-full p-3 border-4 border-blue-100">
           <h1 className="text-xl font-extrabold">🚘 Max Auto’s</h1>
           <motion.p
             initial={{ opacity: 0, y: 50 }}
@@ -140,13 +164,16 @@ function Product() {
             stays smooth and reliable.
           </motion.p>
         </div>
-        <div className="hidden sm:block p-3 ">
+
+        <div className="hidden sm:block p-3">
           <MessageForm />
         </div>
       </div>
+
+      {/* WhatsApp Floating Button */}
       <div className="right-4 bottom-10 fixed z-10">
         <a href="" className="flex gap-1 items-center font-extrabold">
-          <span>Customer Service </span>{" "}
+          <span>Customer Service</span>
           <FaWhatsapp className="text-5xl text-green-600" />
         </a>
       </div>
