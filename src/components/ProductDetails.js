@@ -74,23 +74,12 @@ function ProductDetail() {
             </div>
             <p className="text-gray-700 mb-6">{product.description}</p>
             <div className="flex flex-col w-fit">
-              <span className="font-bold text-gray-400">{product.soon}....</span>
-              {product.soon === "coming soon" ? (
-                <button
-                  disabled
-                  onClick={() => addToCart(product)}
-                  className="bg-green-200 text-white px-4 py-2 rounded"
-                >
-                  Add a Wishlist
-                </button>
-              ) : (
-                <button
-                  onClick={() => addToCart(product)}
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
-                >
-                  Add a Wishlist
-                </button>
-              )}
+              <button
+                onClick={() => addToCart(product)}
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
+              >
+                Add a Wishlist
+              </button>
             </div>
           </div>
         </div>
