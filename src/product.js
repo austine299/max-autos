@@ -144,10 +144,7 @@ const product = {
       description: "A powerful full-size pickup truck designed for heavy lifting and smooth driving.",
       image: "tundra-2025.jpeg",
     },
-  ],
-  MotorParts: [
-    
-  ],
+  ]
 };
 
 export default product;
