@@ -69,7 +69,7 @@ function ProductDetail() {
               onClick={() => addToCart(product)}
               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
             >
-              Add to Cart
+              Add a Wishlist
             </button>
           </div>
         </div>

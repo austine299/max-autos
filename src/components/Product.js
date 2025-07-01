@@ -128,7 +128,7 @@ function Product() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm"
+            className="font-inter text-base leading-relaxed text-gray-700"
           >
             At Max Auto’s, we specialize in imported cars — both brand new and
             foreign used (Tokunbo) — carefully selected to meet your taste,
