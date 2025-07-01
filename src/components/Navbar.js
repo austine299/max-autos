@@ -80,7 +80,7 @@ function Navbar() {
 
       {/* Mobile Navigation */}
       {showNavbar && (
-        <div className="sm:hidden absolute top-20 right-0 w-2/5 bg-white border-t z-40 opacity-100 shadow-md">
+        <div className="sm:hidden absolute top-20 right-0 sm:w-2/5 w-1/2 bg-white border-t z-40 opacity-100 shadow-md">
           <div className="flex flex-col p-6 gap-4">
             {navItems.map((item) => (
               <button
