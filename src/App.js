@@ -7,7 +7,7 @@ import ConfirmOrder from "./components/ConfirmOrder";
 function App() {
   return (
     <div className="App">
-     <Router basename="/max-autos">
+     <Router >
       <Routes>
         <Route path="/" element ={<Home/>}/>
         <Route path="/product/:id" element ={<ProductDetail/>}/>
