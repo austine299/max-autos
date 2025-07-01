@@ -4,9 +4,15 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import Cart from "./Cart";
 
-function Header({ homeRef, setShowNavbar, contactRef, scrollToSection, }) {
-  const { cartItems, removeFromCart, showCart, setShowCart } =
-    useContext(CartContext);
+function Header() {
+  const {
+    showCart,
+    setShowCart,
+    homeRef,
+    scrollToSection,
+    setShowNavbar,
+    contactRef,
+  } = useContext(CartContext);
 
   // List of banner images
   const bannerImages = [
@@ -31,7 +37,7 @@ function Header({ homeRef, setShowNavbar, contactRef, scrollToSection, }) {
   return (
     <div
       ref={homeRef}
-      className="relative h-[350px] w-full bg-cover bg-slate-600 bg-center bg-no-repeat transition-all duration-700 flex justify-between px-6"
+      className="relative h-[350px] w-full bg-cover bg-slate-600 bg-center bg-no-repeat transition-all duration-700 flex justify-between px-6 pt-20"
       style={{ backgroundImage: `url(${bannerImages[currentIndex]})` }}
     >
       <div
@@ -42,12 +48,19 @@ function Header({ homeRef, setShowNavbar, contactRef, scrollToSection, }) {
         }}
       >
         <h1 className="text-4xl text-white font-extrabold drop-shadow-lg mt-7 sm:mt-0">
-          MAX AUTO’S 
-        </h1><small className="text-xl text-center text-white font-bold"> A Subsidiary of OJIAKAANU NIG LTD (RC 1047355)</small>
+          MAX AUTO’S
+        </h1>
+        <small className="text-xl text-center text-white font-bold">
+          {" "}
+          A Subsidiary of OJIAKAANU NIG LTD (RC 1047355)
+        </small>
         <span className="text-lg text-white drop-shadow-md">
           we deliver nation wide
         </span>
-        <button onClick={() => scrollToSection(contactRef)} className="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-md text-white font-semibold w-max">
+        <button
+          onClick={() => scrollToSection(contactRef)}
+          className="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-md text-white font-semibold w-max"
+        >
           Contact Us
         </button>
       </div>

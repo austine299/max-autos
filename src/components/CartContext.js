@@ -1,11 +1,36 @@
 // src/components/CartContext.js
-import { createContext, useState } from "react";
-
+import { createContext, useState, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(null);
+  const [showNavbar, setShowNavbar] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const contactRef = useRef(null);
+  const productRef = useRef(null);
+  const footerRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleSectionClick = (ref, label) => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: label } });
+    } else {
+      scrollToSection(ref);
+    }
+
+    if (showNavbar) {
+      setShowNavbar(false);
+    }
+  };
 
   const addToCart = (product) => {
     const exists = cartItems.find((item) => item.id === product.id);
@@ -59,6 +84,15 @@ export function CartProvider({ children }) {
         setShowCart,
         decreaseQty,
         increaseQty,
+        aboutRef,
+        productRef,
+        contactRef,
+        homeRef,
+        footerRef,
+        scrollToSection,
+        showNavbar,
+        setShowNavbar,
+        handleSectionClick,
       }}
     >
       {children}

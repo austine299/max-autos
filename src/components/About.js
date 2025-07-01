@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaCarSide, FaCogs } from "react-icons/fa";
+import { CartContext } from "./CartContext";
 
-const About = ({aboutRef}) => {
+const About = () => {
+  const {aboutRef} = useContext(CartContext)
   return (
     <section ref={aboutRef} className="bg-white py-12 px-6 md:px-20">
       {/* Banner */}

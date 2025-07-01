@@ -3,17 +3,23 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Menu, X } from "lucide-react";
 import { CartContext } from "./CartContext";
 
-function Navbar({
-  showNavbar,
-  setShowNavbar,
-  scrollToSection,
-  homeRef,
-  contactRef,
-  aboutRef,
-  productRef,
-}) {
-  const { cartItems, showCart, setShowCart } = useContext(CartContext);
+function Navbar() {
+  
+  const {
+    cartItems,
+    showCart,
+    setShowCart,
+    aboutRef,
+    productRef,
+    contactRef,
+    homeRef,
+    scrollToSection,
+    showNavbar, 
+    setShowNavbar,
+    handleSectionClick,
+  } = useContext(CartContext);
 
+ 
   const handleNav = () => setShowNavbar(!showNavbar);
   const handleShowCart = () => setShowCart(!showCart);
 
@@ -34,7 +40,10 @@ function Navbar({
           className="w-20 text-blue-600 tracking-wide"
           onClick={() => scrollToSection(homeRef)}
         >
-          <img src={`${process.env.PUBLIC_URL}/images/logo.jpg`}  className="rounded-full"/>
+          <img
+            src={`${process.env.PUBLIC_URL}/images/logo.jpg`}
+            className="rounded-full"
+          />
         </button>
 
         {/* Desktop Navigation */}
@@ -42,7 +51,7 @@ function Navbar({
           {navItems.map((item) => (
             <button
               key={item.label}
-              onClick={() => scrollToSection(item.ref)}
+              onClick={() => handleSectionClick(item.ref, item.label)}
               className="font-semibold text-lg hover:bg-blue-600 hover:text-white px-4 py-2 rounded-md transition-all duration-200"
             >
               {item.label}
@@ -77,7 +86,7 @@ function Navbar({
               <button
                 key={item.label}
                 onClick={() => {
-                  scrollToSection(item.ref);
+                  handleSectionClick(item.ref, item.label);
                   handleNav();
                 }}
                 className="text-lg font-semibold text-gray-800 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-md transition-all"

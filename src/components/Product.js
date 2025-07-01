@@ -1,13 +1,18 @@
 import React, { useContext, useState } from "react";
-import { FaCar, FaWhatsapp} from "react-icons/fa";
+import { FaCar, FaWhatsapp } from "react-icons/fa";
 import products from "../product"; // Ensure this exports categorized object
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import { motion } from "framer-motion";
 import MessageForm from "./MessageForm";
 
-function Product({ productRef, setShowNavbar }) {
-  const { addToCart, setShowCart } = useContext(CartContext);
+function Product() {
+  const {
+    addToCart,
+    setShowCart,
+    productRef,
+    setShowNavbar,
+  } = useContext(CartContext);
   const [showCategory, setShowCategory] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -29,7 +34,7 @@ function Product({ productRef, setShowNavbar }) {
       onClick={() => {
         setShowCart(false);
         setShowCategory(false);
-        setShowNavbar(false)
+        setShowNavbar(false);
       }}
     >
       <div className="sm:w-4/5 w-full">
@@ -134,11 +139,14 @@ function Product({ productRef, setShowNavbar }) {
           </motion.p>
         </div>
         <div className="hidden sm:block p-3 ">
-          <MessageForm/>
+          <MessageForm />
         </div>
       </div>
       <div className="right-4 bottom-10 fixed z-10">
-        <a href="" className="flex gap-1 items-center font-extrabold"><span >Customer Service </span> <FaWhatsapp className="text-5xl text-green-600"/></a>
+        <a href="" className="flex gap-1 items-center font-extrabold">
+          <span>Customer Service </span>{" "}
+          <FaWhatsapp className="text-5xl text-green-600" />
+        </a>
       </div>
     </section>
   );

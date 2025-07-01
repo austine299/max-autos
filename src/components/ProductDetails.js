@@ -19,7 +19,7 @@ function ProductDetail() {
 
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col pt-20 pb-4">
       <div className="flex justify-between items-center px-8 w-full">
         <div className="flex gap-3 p-5 items-center w-5/6">
           <Link to="/" className="hover:text-blue-700 hover:underline font-semibold">

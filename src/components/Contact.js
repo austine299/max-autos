@@ -1,8 +1,11 @@
-import React from "react";
+import React,{useContext} from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import MessageForm from './MessageForm';
+import { CartContext } from "./CartContext";
 
-const Contact = ({contactRef}) => {
+const Contact = () => {
+  
+    const {contactRef} = useContext(CartContext)
   return (
     <section ref={contactRef} className="bg-white">
       {/* Top Banner */}

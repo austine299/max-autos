@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import {
   FaFacebookF,
   FaInstagram,
@@ -7,11 +7,18 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
 
-const Footer = ({ footerRef, homeRef, contactRef, aboutRef, productRef, scrollToSection }) => {
+const Footer = () => {
+  const {
+      aboutRef,
+      productRef,
+      contactRef,
+      homeRef,
+      scrollToSection,
+    } = useContext(CartContext);
   return (
     <footer
-      ref={footerRef}
       className="bg-blue-900 text-white py-10 px-6 sm:px-20"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
