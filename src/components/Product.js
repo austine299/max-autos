@@ -7,12 +7,8 @@ import { motion } from "framer-motion";
 import MessageForm from "./MessageForm";
 
 function Product() {
-  const {
-    addToCart,
-    setShowCart,
-    productRef,
-    setShowNavbar,
-  } = useContext(CartContext);
+  const { addToCart, setShowCart, productRef, setShowNavbar } =
+    useContext(CartContext);
   const [showCategory, setShowCategory] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -99,15 +95,26 @@ function Product() {
                 <h2 className="font-bold text-gray-900 w-full overflow-hidden whitespace-nowrap text-ellipsis">
                   {item.name}
                 </h2>
+                <span className="font-bold text-gray-400">{item.soon}....</span>
               </Link>
 
               <div className="flex justify-between items-center w-full mt-4 gap-2">
-                <button
-                  onClick={() => addToCart(item)}
-                  className="flex-1 bg-green-600 hover:bg-green-500 text-white font-semibold px-2 py-2 rounded-lg text-sm transition"
-                >
-                  Add a Wishlist
-                </button>
+                {item.soon === "coming soon" ? (
+                  <button
+                    disabled
+                    onClick={() => addToCart(item)}
+                    className="flex-1 bg-green-200  text-white font-semibold px-2 py-2 rounded-lg text-sm transition"
+                  >
+                    Add a Wishlist
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => addToCart(item)}
+                    className="flex-1 bg-green-600 hover:bg-green-500 text-white font-semibold px-2 py-2 rounded-lg text-sm transition"
+                  >
+                    Add a Wishlist
+                  </button>
+                )}
 
                 <Link
                   to={`product/${item.id}`}

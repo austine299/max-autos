@@ -1,5 +1,5 @@
 // src/pages/ProductDetail.jsx
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import products from "../product";
 import { useContext } from "react";
@@ -10,7 +10,8 @@ import Cart from "./Cart";
 
 function ProductDetail() {
   const { id } = useParams();
-  const { cartItems, addToCart, showCart, setShowCart } = useContext(CartContext);
+  const { cartItems, addToCart, showCart, setShowCart } =
+    useContext(CartContext);
 
   const allProducts = Object.values(products).flat();
   const product = allProducts.find((item) => item.id.toString() === id);
@@ -22,11 +23,16 @@ function ProductDetail() {
     <div className="flex flex-col pt-20 pb-4">
       <div className="flex justify-between items-center px-8 w-full">
         <div className="flex gap-3 p-5 items-center w-5/6">
-          <Link to="/" className="hover:text-blue-700 hover:underline font-semibold">
+          <Link
+            to="/"
+            className="hover:text-blue-700 hover:underline font-semibold"
+          >
             Home
           </Link>
           <span>></span>
-          <span className=" w-full font-extrabold overflow-hidden whitespace-nowrap text-ellipsis">{product.name}</span>
+          <span className=" w-full font-extrabold overflow-hidden whitespace-nowrap text-ellipsis">
+            {product.name}
+          </span>
         </div>
         <button
           onClick={() => setShowCart(!showCart)}
@@ -62,15 +68,30 @@ function ProductDetail() {
             </div>
             <div>
               <span className="text-2xl font-extrabold">Description</span>
-              <p className="text-xl text-gray-600 mb-4">{product.description}</p>
+              <p className="text-xl text-gray-600 mb-4">
+                {product.description}
+              </p>
             </div>
             <p className="text-gray-700 mb-6">{product.description}</p>
-            <button
-              onClick={() => addToCart(product)}
-              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
-            >
-              Add a Wishlist
-            </button>
+            <div className="flex flex-col w-fit">
+              <span className="font-bold text-gray-400">{product.soon}....</span>
+              {product.soon === "coming soon" ? (
+                <button
+                  disabled
+                  onClick={() => addToCart(product)}
+                  className="bg-green-200 text-white px-4 py-2 rounded"
+                >
+                  Add a Wishlist
+                </button>
+              ) : (
+                <button
+                  onClick={() => addToCart(product)}
+                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
+                >
+                  Add a Wishlist
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
