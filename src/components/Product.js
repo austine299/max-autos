@@ -43,7 +43,7 @@ function Product() {
       {/* Product List */}
       <div className="sm:w-4/5 w-full">
         <div className="relative flex justify-between bg-blue-100 py-3 px-4 mb-10">
-          <h1 className="sm:text-3xl text-xl font-extrabold text-gray-800 flex items-center gap-3">
+          <h1 className="sm:text-3xl text-sm font-extrabold text-gray-800 flex items-center gap-3">
             <FaCar className="text-blue-600" /> Car Stand
           </h1>
 
@@ -55,7 +55,7 @@ function Product() {
                 e.stopPropagation();
                 setShowCategory(!showCategory);
               }}
-              className="text-lg font-semibold text-blue-700 border border-blue-500 px-4 py-2 rounded hover:bg-white"
+              className="sm:text-lg text-sm  font-semibold text-blue-700 border border-blue-500 sm:px-4 px-2 py-2 rounded hover:bg-white"
             >
               {selectedCategory || "Categories"}
             </button>
@@ -66,7 +66,7 @@ function Product() {
                 e.stopPropagation();
                 handleCategorySelect("Auto Parts", false);
               }}
-              className="text-lg font-semibold text-blue-700 border border-blue-500 px-4 py-2 rounded hover:bg-white"
+              className="sm:text-lg text-sm font-semibold text-blue-700 border border-blue-500 sm:px-4 px-2  py-2 rounded hover:bg-white"
             >
               Auto Parts
             </button>
