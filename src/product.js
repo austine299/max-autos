@@ -146,30 +146,7 @@ const product = {
     },
   ],
   MotorParts: [
-    {
-      id: 16,
-      name: "2.0-liter Dynamic Force Engine, a New 2.0-liter Direct-injection",
-      feature: "High efficiency, Direct injection, Low emissions",
-      description: "Toyota's next-gen engine offering both power and environmental performance.",
-      image: "engine1.jpg",
-      soon: "coming soon"
-    },
-    {
-      id: 17,
-      name: "TOYOTA COROLLA ENGINE 1.6L 4AFE 16V 4AFE",
-      feature: "1.6L engine, 4-cylinder, 16-valve",
-      description: "Reliable used engine compatible with older Toyota Corolla models.",
-      image: "corolla-engine.jpeg",
-      soon: "coming soon"
-    },
-    {
-      id: 18,
-      name: "TOYOTA Tire",
-      feature: "All-season grip, Durable rubber, 16-inch",
-      description: "OEM Toyota tire suitable for various sedan and SUV models, delivering all-weather traction.",
-      image: "tire.jpg",
-      soon: "coming soon"
-    },
+    
   ],
 };
 

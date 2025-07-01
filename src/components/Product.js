@@ -74,57 +74,64 @@ function Product() {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {displayedProducts.map((item) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="bg-white rounded-xl shadow hover:shadow-lg transition duration-300 p-4 flex flex-col justify-between h-full text-center"
-            >
-              <Link
-                to={`product/${item.id}`}
-                className="flex flex-col items-center justify-center px-4 flex-grow"
+          {displayedProducts.length === 0 ? (
+            <div className="col-span-full text-center text-2xl font-bold text-gray-500 py-20">
+              🚧 Coming Soon 🚧
+            </div>
+          ) : (
+            displayedProducts.map((item) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="bg-white rounded-xl shadow hover:shadow-lg transition duration-300 p-4 flex flex-col justify-between h-full text-center"
               >
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/${item.image}`}
-                  alt={item.name}
-                  className="w-full object-cover rounded-lg mb-4"
-                />
-                <h2 className="font-bold text-gray-900 w-full overflow-hidden whitespace-nowrap text-ellipsis">
-                  {item.name}
-                </h2>
-                <span className="font-bold text-gray-400">{item.soon}....</span>
-              </Link>
-
-              <div className="flex justify-between items-center w-full mt-4 gap-2">
-                {item.soon === "coming soon" ? (
-                  <button
-                    disabled
-                    onClick={() => addToCart(item)}
-                    className="flex-1 bg-green-200  text-white font-semibold px-2 py-2 rounded-lg text-sm transition"
-                  >
-                    Add a Wishlist
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => addToCart(item)}
-                    className="flex-1 bg-green-600 hover:bg-green-500 text-white font-semibold px-2 py-2 rounded-lg text-sm transition"
-                  >
-                    Add a Wishlist
-                  </button>
-                )}
-
                 <Link
                   to={`product/${item.id}`}
-                  className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-2 py-2 rounded-lg text-sm transition text-center"
+                  className="flex flex-col items-center justify-center px-4 flex-grow"
                 >
-                  View Details
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/${item.image}`}
+                    alt={item.name}
+                    className="w-full object-cover rounded-lg mb-4"
+                  />
+                  <h2 className="font-bold text-gray-900 w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                    {item.name}
+                  </h2>
+                  <span className="font-bold text-gray-400">
+                    {item.soon}....
+                  </span>
                 </Link>
-              </div>
-            </motion.div>
-          ))}
+
+                <div className="flex justify-between items-center w-full mt-4 gap-2">
+                  {item.soon === "coming soon" ? (
+                    <button
+                      disabled
+                      className="flex-1 bg-green-200 text-white font-semibold px-2 py-2 rounded-lg text-sm transition"
+                    >
+                      Add a Wishlist
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => addToCart(item)}
+                      className="flex-1 bg-green-600 hover:bg-green-500 text-white font-semibold px-2 py-2 rounded-lg text-sm transition"
+                    >
+                      Add a Wishlist
+                    </button>
+                  )}
+
+                  <Link
+                    to={`product/${item.id}`}
+                    className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-2 py-2 rounded-lg text-sm transition text-center"
+                  >
+                    View Details
+                  </Link>
+                </div>
+              </motion.div>
+            ))
+          )}
         </div>
       </div>
       <div className="sm:w-1/3 w-full">
