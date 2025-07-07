@@ -34,22 +34,12 @@ function ProductDetail() {
             {product.name}
           </span>
         </div>
-        <button
-          onClick={() => setShowCart(!showCart)}
-          className="relative flex items-center gap-1 text-lg font-bold bg-blue-600 px-4 py-2 rounded-md text-white transition"
-        >
-          <FaShoppingCart />
-          {cartItems.length > 0 && (
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">
-              {totalQuantity}
-            </span>
-          )}
-        </button>
+       
       </div>
 
       {/* Show Cart if true */}
       {showCart && (
-        <div className="absolute top-20 sm:right-10 z-50 bg-white shadow-lg rounded p-4 sm:w-1/2 w-full">
+        <div className="absolute sm:right-0 z-50 bg-white shadow-lg rounded sm:w-1/2 w-full">
           <Cart />
         </div>
       )}
