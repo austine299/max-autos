@@ -19,7 +19,7 @@ function MessageForm() {
   const handlMassage = (e) => {
     e.preventDefault();
     const url =
-      "https://script.google.com/macros/s/AKfycbxPAONhulTI0O6wUeLghtyMPg-n6C-IOa0R2GDcZYrLqhotf8Mj7WgGiRzHjUivhIHy/exec";
+      "https://script.google.com/macros/s/AKfycbwKffa25LqX6JqHQ036Zapqaaxwc_sFqUyHqWO3AgmwcnKXh6zoh6KXa9oqe_a7_jbf/exec";
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
