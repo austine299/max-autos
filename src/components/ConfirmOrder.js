@@ -3,7 +3,6 @@ import { CartContext } from "./CartContext";
 import { useNavigate } from "react-router-dom";
 import jsPDF from "jspdf";
 
-
 function ConfirmOrder() {
   const { cartItems, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
@@ -45,21 +44,22 @@ function ConfirmOrder() {
       const baseUrl = process.env.REACT_APP_BASE_URL;
       const num = process.env.REACT_APP_MOBILE;
 
- 
-       const orderMessage =
-      `🛒 *New Order:*\n` +
-      cartItems
-        .map((item) => `${baseUrl}product/${item.id} \n` + `${item.name} \t(x${item.quantity})\n`)
+      const orderMessage =
+        `🛒 *New Order:*\n\n` +
+        cartItems
+          .map(
+            (item, i) =>
+              `*${i + 1}.* ${item.name} (x${
+                item.quantity
+              })\n🔗 ${baseUrl}/product/${item.id}`
+          )
+          .join("\n\n") +
+        `\n\n*Customer Name:* ${name}\n*Phone:* ${phone}`;
 
-        .join("\n") +
-      `\n\n*Name:* ${name}\n*Phone:* ${phone}`;
-
-    const whatsappURL = `https://wa.me/${num}?text=${encodeURIComponent(
-      orderMessage
-    )}`;
-    window.open(whatsappURL, "_blank");
-
-
+      const whatsappURL = `https://wa.me/${num}?text=${encodeURIComponent(
+        orderMessage
+      )}`;
+      window.open(whatsappURL, "_blank");
 
       clearCart();
       navigate("/");
