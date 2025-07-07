@@ -17,6 +17,8 @@ const Footer = () => {
       homeRef,
       scrollToSection,
     } = useContext(CartContext);
+    
+    const contactNum = process.env.REACT_APP_CONTACT;
   return (
     <footer
       className="bg-blue-900 text-white py-10 px-6 sm:px-20"
@@ -68,7 +70,7 @@ const Footer = () => {
           <h2 className="text-xl font-bold mb-4">Contact</h2>
           <div className="flex items-center gap-3 mb-3 text-gray-300">
             <FaPhone />
-            <span>+234 801 234 5678</span>
+            <span>{contactNum}</span>
           </div>
           <div className="flex items-center gap-3 mb-6 text-gray-300">
             <FaMapMarkerAlt />
