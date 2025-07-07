@@ -1,16 +1,14 @@
 // src/pages/ProductDetail.jsx
-import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import products from "../product";
 import { useContext } from "react";
 import { CartContext } from "../components/CartContext";
 import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
 import Cart from "./Cart";
 
 function ProductDetail() {
   const { id } = useParams();
-  const { cartItems, addToCart, showCart, setShowCart } =
+  const { addToCart, showCart } =
     useContext(CartContext);
 
   const allProducts = Object.values(products).flat();
@@ -18,7 +16,6 @@ function ProductDetail() {
 
   if (!product) return <p className="text-center mt-10">Product not found</p>;
 
-  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <div className="flex flex-col pt-20 pb-4">
       <div className="flex justify-between items-center px-8 w-full">

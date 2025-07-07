@@ -30,6 +30,10 @@ function Product() {
     setShowCart(false);
   };
 
+  const num = process.env.REACT_APP_MOBILE;
+
+  const customMsg = "Thank you for contacting OJIAKAANU NIG LTD" 
+
   return (
     <section
       ref={productRef}
@@ -172,7 +176,10 @@ function Product() {
 
       {/* WhatsApp Floating Button */}
       <div className="right-4 bottom-10 fixed z-10">
-        <a href="" className="flex gap-1 items-center font-extrabold">
+        <a
+          href={`https://wa.me/${num}?text=${customMsg}`}
+          className="flex gap-1 items-center font-extrabold"
+        >
           <span>Customer Service</span>
           <FaWhatsapp className="text-5xl text-green-600" />
         </a>
