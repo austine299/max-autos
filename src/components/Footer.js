@@ -70,7 +70,7 @@ const Footer = () => {
           <h2 className="text-xl font-bold mb-4">Contact</h2>
           <div className="flex items-center gap-3 mb-3 text-gray-300">
             <FaPhone />
-            <span>{contactNum}</span>
+            <span>+{contactNum}</span>
           </div>
           <div className="flex items-center gap-3 mb-6 text-gray-300">
             <FaMapMarkerAlt />

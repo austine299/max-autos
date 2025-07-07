@@ -40,7 +40,7 @@ const Contact = () => {
             </div>
             <div className="flex items-center gap-4">
               <FaPhoneAlt className="text-blue-700 text-2xl" />
-              <span className="text-lg text-gray-700">{contactNum}</span>
+              <span className="text-lg text-gray-700">+{contactNum}</span>
             </div>
             <div className="flex items-center gap-4">
               <FaEnvelope className="text-blue-700 text-2xl" />
