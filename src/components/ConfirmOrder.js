@@ -69,7 +69,7 @@ function ConfirmOrder() {
   };
 
   return (
-    <div className="p-8 max-w-xl mx-auto">
+    <div className="p-8 mt-32 max-w-xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">Confirm Order</h2>
 
       <div className="space-y-4">

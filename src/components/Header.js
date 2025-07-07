@@ -67,7 +67,7 @@ function Header() {
       {/* Desktop Cart */}
       {showCart && (
         <div className="hidden sm:flex justify-end w-1/2 px-5 ">
-          <div className="flex flex-col w-full bg-white opacity-90 p-4 rounded-md shadow-md">
+          <div className="fixed flex flex-col sm:w-2/5 w-full sm:top-30  bg-white opacity-90 z-10  rounded-md shadow-md">
             <Cart />
           </div>
         </div>
