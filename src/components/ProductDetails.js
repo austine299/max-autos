@@ -6,6 +6,7 @@ import { CartContext } from "../components/CartContext";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 
+
 function ProductDetail() {
   const { id } = useParams();
   const { addToCart, showCart } =
