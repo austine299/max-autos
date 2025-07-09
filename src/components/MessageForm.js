@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
 function MessageForm() {
@@ -7,56 +7,72 @@ function MessageForm() {
     email: "",
     message: "",
   });
-  const [success, setSuccess] = useState(false); 
-
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+   
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+  const formUrl = process.env.REACT_APP_FORM_URL;
+  const handleMessage = (e) => {
+  e.preventDefault();
+  const url = formUrl;
+  
+  setLoading(true);
+  
+  const formBody = `Name=${encodeURIComponent(formData.name)}&Email=${encodeURIComponent(formData.email)}&Message=${encodeURIComponent(formData.message)}`;
 
-  const handlMassage = (e) => {
-    e.preventDefault();
-    const url =
-      "https://script.google.com/macros/s/AKfycbwKffa25LqX6JqHQ036Zapqaaxwc_sFqUyHqWO3AgmwcnKXh6zoh6KXa9oqe_a7_jbf/exec";
-    fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `Name=${e.target.name.value}&Email=${e.target.email.value}&Message=${e.target.message.value}`,
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: formBody,
+  })
+    .then((res) => res.text())
+    .then((data) => {
+      alert(data);
+      setSuccess(true);
     })
-      .then((res) => res.text())
-      .then((data) => {
-        alert(data);
-      })
-      .catch((error) => console.log(error));
-      setSuccess(true)
-      
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
+    .catch((error) => {
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting the form.");
+    })
+    .finally(() => {
+      setLoading(false);
+      setFormData({ name: "", email: "", message: "" });
     });
-  };
+};
 
-   useEffect(() => {
+
+  useEffect(() => {
     if (success) {
       const timer = setTimeout(() => {
         setSuccess(false);
-      }, 10000); // 3 seconds
+      setLoading(false);
+      }, 10000); // 10 seconds
 
-      return () => clearTimeout(timer); // cleanup
+      return () => clearTimeout(timer);
     }
   }, [success]);
+
   return (
     <form
-      onSubmit={handlMassage}
+      onSubmit={handleMessage}
       className="bg-blue-100 p-6 rounded-xl shadow-xl space-y-5 border border-gray-200"
     >
       <h2 className="text-xl font-bold text-blue-800">Send Us a Message</h2>
-      {success && <div className="flex justify-center">
-        <FaCheckCircle className="text-green-500 text-7xl"/>
-      </div>}
+
+      {success && (
+        <div className="flex flex-col items-center space-y-2">
+          <FaCheckCircle className="text-green-500 text-5xl" />
+          <p className="text-green-600 font-medium">
+            Message sent! We will get back to you shortly.
+          </p>
+        </div>
+      )}
+
       <div>
         <label className="block text-sm font-medium text-gray-700">Name</label>
         <input
@@ -69,6 +85,7 @@ function MessageForm() {
           name="name"
         />
       </div>
+
       <div>
         <label className="block text-sm font-medium text-gray-700">Email</label>
         <input
@@ -81,6 +98,7 @@ function MessageForm() {
           name="email"
         />
       </div>
+
       <div>
         <label className="block text-sm font-medium text-gray-700">
           Message
@@ -95,12 +113,17 @@ function MessageForm() {
           name="message"
         />
       </div>
-      {success && <p className="text-green-500">message sent we will get back you shortly</p>}
+
       <button
         type="submit"
-        className="w-full bg-blue-700 text-white py-3 rounded-md font-semibold hover:bg-blue-600 transition"
+        disabled={loading}
+        className={`w-full py-3 rounded-md font-semibold transition ${
+          loading
+            ? "bg-blue-300 cursor-not-allowed"
+            : "bg-blue-700 text-white hover:bg-blue-600"
+        }`}
       >
-        Send Message
+        {loading ? "Sending..." : "Send Message"}
       </button>
     </form>
   );
