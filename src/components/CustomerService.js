@@ -15,7 +15,7 @@ const WhatsAppChatWidget = () => {
     <>
       {/* Floating WhatsApp Button */}
       <div
-        className="fixed bottom-5 right-5 z-50 bg-green-500 rounded-full p-4 cursor-pointer shadow-lg"
+        className="fixed bottom-5 right-5 z-50 bg-green-500 rounded-full p-4 cursor-pointer shadow-lg animate-pulse"
         onClick={() => setIsOpen(!isOpen)}
       >
         <img
