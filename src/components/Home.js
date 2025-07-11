@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import { motion } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { CartContext } from "./CartContext";
+import CustomerService from "./CustomerService";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function Home() {

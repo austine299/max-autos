@@ -5,6 +5,7 @@ import Cart from "./components/Cart";
 import ConfirmOrder from "./components/ConfirmOrder";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import CustomerService from "./components/CustomerService";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/confirmOrder" element={<ConfirmOrder />} />
         </Routes>
+      <CustomerService/>
       <Footer />
     </div>
   );
