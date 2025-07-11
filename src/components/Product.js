@@ -174,16 +174,7 @@ function Product() {
         </div>
       </div>
 
-      {/* WhatsApp Floating Button */}
-      <div className="right-4 bottom-10 fixed z-10">
-        <a
-          href={`https://wa.me/${num}?text=${customMsg}`}
-          className="flex gap-1 items-center font-extrabold"
-        >
-          <span>Customer Service</span>
-          <FaWhatsapp className="text-5xl text-green-600" />
-        </a>
-      </div>
+    
     </section>
   );
 }
