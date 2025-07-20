@@ -47,7 +47,7 @@ function Header() {
           setShowNavbar(false);
         }}
       >
-        <h1 className="text-4xl text-white font-extrabold drop-shadow-lg mt-7 sm:mt-0">
+        <h1 className="sm:text-4xl text-3xl text-white font-extrabold drop-shadow-lg mt-7 sm:mt-0">
           OJIAKAANU AUTO’S
         </h1>
         <small className="text-xl text-center text-white font-bold">

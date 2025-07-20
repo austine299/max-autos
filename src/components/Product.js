@@ -152,7 +152,7 @@ function Product() {
       {/* Sidebar */}
       <div className="sm:w-1/3 w-full">
         <div className="flex flex-col gap-3 w-full p-3 border-4 border-blue-100">
-          <h1 className="text-xl font-extrabold">🚘 Max Auto’s</h1>
+          <h1 className="text-xl font-extrabold">🚘 Ojiakaanu Auto’s</h1>
           <motion.p
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +160,7 @@ function Product() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="font-inter text-base leading-relaxed text-gray-700"
           >
-            At Max Auto’s, we specialize in imported cars — both brand new and
+            At Ojiakaanu Auto’s, we specialize in imported cars — both brand new and
             foreign used (Tokunbo) — carefully selected to meet your taste,
             style, and budget. Whether you’re looking for durability, luxury, or
             everyday comfort, we’ve got the perfect ride just for you. We also
