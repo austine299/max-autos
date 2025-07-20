@@ -33,7 +33,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur opacity-80 z-50 shadow-md">
+    <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur  z-50 shadow-md">
       <div className="flex justify-between items-center h-20 px-6 sm:px-12">
         {/* Logo */}
         <button

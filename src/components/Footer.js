@@ -34,7 +34,7 @@ const Footer = () => {
         </button>
           <p className="text-gray-300">
             Your trusted plug for quality imported vehicles and genuine motor
-            parts. Ride in comfort, class, and confidence with Max Auto's.
+            parts. Ride in comfort, class, and confidence with Ojiakaanu Auto's.
           </p>
         </div>
 
