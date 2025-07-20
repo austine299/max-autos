@@ -18,7 +18,7 @@ const Contact = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30" />
         <div className="z-10 text-center px-4">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
-            Contact Max Auto’s
+            Contact Ojiakaanu Auto’s
           </h1>
           <p className="text-lg text-gray-100 mt-2">
             🚘 Let's Get You Rolling — Reach Out Today

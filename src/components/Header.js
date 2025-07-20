@@ -48,7 +48,7 @@ function Header() {
         }}
       >
         <h1 className="text-4xl text-white font-extrabold drop-shadow-lg mt-7 sm:mt-0">
-          MAX AUTO’S
+          OJIAKAANU AUTO’S
         </h1>
         <small className="text-xl text-center text-white font-bold">
           {" "}
