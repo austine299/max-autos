@@ -80,13 +80,13 @@ const Footer = () => {
           {/* Socials */}
           <div className="flex gap-4">
             <a
-              href="#"
+              href="https://web.facebook.com/profile.php?id=61578390186899"
               className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full"
             >
               <FaFacebookF />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/ojiakaanuautosnigltd/"
               className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full"
             >
               <FaInstagram />
