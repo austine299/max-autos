@@ -1,26 +1,8 @@
 {
-  "redirects": [
-    {
-      "source": "/favicon.ico",
-      "has": [
+    "routes":[
         {
-          "type": "host",
-          "value": "ojiakaanu.com"
+            "src":"/[^.]+",
+            "dest":"/"
         }
-      ],
-      "destination": "https://www.ojiakaanu.com/favicon.ico",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "ojiakaanu.com"
-        }
-      ],
-      "destination": "https://www.ojiakaanu.com/:1",
-      "permanent": true
-    }
-  ]
+    ]
 }
