@@ -1,12 +1,4 @@
 {
-    "routes":[
-        {
-            "src":"/[^.]+",
-            "dest":"/"
-        }
-    ],
-
-
   "redirects": [
     {
       "source": "/favicon.ico",
