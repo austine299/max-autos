@@ -1,8 +1,14 @@
 {
-    "routes":[
-        {
-            "src":"/[^.]+",
-            "dest":"/"
-        }
-    ]
+  "redirects": [
+    {
+      "source": "/favicon.ico",
+      "destination": "https://www.ojiakaanu.com/favicon.ico",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://www.ojiakaanu.com/$1",
+      "permanent": true
+    }
+  ]
 }
