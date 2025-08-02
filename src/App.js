@@ -10,7 +10,7 @@ import CustomerService from "./components/CustomerService";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Navbar /> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetail />} />
