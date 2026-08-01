@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { createChat } from "@n8n/chat";
 import "@n8n/chat/style.css";
@@ -9,8 +8,7 @@ const AIChatWidget = () => {
 
   useEffect(() => {
     createChat({
-      webhookUrl:
-        webhook,
+      webhookUrl: webhook,
 
       mode: "window",
 
@@ -37,11 +35,6 @@ const AIChatWidget = () => {
 };
 
 export default AIChatWidget;
-
-
-
-
-
 
 // import React, { useState } from "react";
 // import { X } from "lucide-react";
