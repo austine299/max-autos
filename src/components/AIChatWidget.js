@@ -5,10 +5,12 @@ import "@n8n/chat/style.css";
 import "./chat.css";
 
 const AIChatWidget = () => {
+  const webhook = process.env.REACT_APP_WEBHOOK;
+
   useEffect(() => {
     createChat({
       webhookUrl:
-        "https://n8n.srv1193704.hstgr.cloud/webhook/73a670f7-c7a0-4403-92c0-6cee1bc06994/chat",
+        webhook,
 
       mode: "window",
 
