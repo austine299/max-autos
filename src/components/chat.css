@@ -1,0 +1,72 @@
+/* ===========================
+   Brand Colors
+=========================== */
+
+:root {
+  --chat--color--primary: #0b5ed7;
+  --chat--color--primary-shade-50: #094db0;
+  --chat--color--primary--shade-100: #063f8f;
+
+  --chat--header--background: #111827;
+  --chat--header--color: #ffffff;
+
+  --chat--window--border-radius: 18px;
+
+  --chat--message--user--background: #0b5ed7;
+  --chat--message--user--color: #fff;
+
+  --chat--message--bot--background: #f3f4f6;
+  --chat--message--bot--color: #111827;
+
+  --chat--toggle--background: #0b5ed7;
+  --chat--toggle--hover--background: #094db0;
+}
+
+/* Header */
+
+.chat-header,
+.chat-heading {
+  background: #0b5ed7 !important;
+}
+
+/* Logo */
+
+.chat-heading {
+  position: relative;
+  padding-left: 65px !important;
+}
+
+.chat-heading::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Title */
+
+.chat-heading h1,
+.chat-heading h2 {
+  color: white !important;
+}
+
+/* Messages */
+
+.chat-message {
+  border-radius: 14px !important;
+}
+
+/* Toggle button */
+
+.chat-window-toggle {
+  background: #0b5ed7 !important;
+}
+
+.chat-window-toggle:hover {
+  background: #094db0 !important;
+}

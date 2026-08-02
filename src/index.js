@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router} from "react-router-dom";
 import './index.css';
+import "@n8n/chat/style.css";
 import { CartProvider } from './components/CartContext';
 import App from './App';
 

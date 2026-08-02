@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+// import { X } from "lucide-react";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import Cart from "./Cart";
@@ -27,12 +27,12 @@ function Header() {
 
   // Rotate banner every 5 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % bannerImages.length);
-    }, 5000); // change every 5 seconds
+  const interval = setInterval(() => {
+    setCurrentIndex(prevIndex => (prevIndex + 1) % bannerImages.length);
+  }, 5000);
 
-    return () => clearInterval(interval); // cleanup
-  }, []);
+  return () => clearInterval(interval);
+}, [bannerImages.length]);
 
   return (
     <div

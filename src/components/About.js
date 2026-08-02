@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FaMapMarkerAlt, FaPhoneAlt, FaCarSide, FaCogs } from "react-icons/fa";
+import {FaCarSide, FaCogs } from "react-icons/fa";
 import { CartContext } from "./CartContext";
 
 const About = () => {

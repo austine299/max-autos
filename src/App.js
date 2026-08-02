@@ -5,7 +5,7 @@ import Cart from "./components/Cart";
 import ConfirmOrder from "./components/ConfirmOrder";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import CustomerService from "./components/CustomerService";
+import CustomerService from "./components/AIChatWidget";
 
 function App() {
   return (
