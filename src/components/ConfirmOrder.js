@@ -17,23 +17,24 @@ function ConfirmOrder() {
       let y = 20;
 
       for (const item of cartItems) {
+        const currentY = y; // Capture the current value
+
         const img = new Image();
         img.src = `${process.env.PUBLIC_URL}/images/${item.image}`;
 
-        await new Promise((resolve, reject) => {
+        await new Promise((resolve) => {
           img.onload = () => {
-            doc.addImage(img, "JPEG", 10, y, 30, 30);
+            doc.addImage(img, "JPEG", 10, currentY, 30, 30);
             resolve();
           };
+
           img.onerror = () => {
             console.error("Error loading image:", item.image);
-            console.error("Image URL:", img.src);
-            console.error("Item:", item);
-            resolve(); // Continue with the next item
+            resolve();
           };
         });
 
-        doc.text(`${item.name} x ${item.quantity}`, 45, y + 15);
+        doc.text(`${item.name} x ${item.quantity}`, 45, currentY + 15);
         y += 40;
       }
 
@@ -51,13 +52,13 @@ function ConfirmOrder() {
             (item, i) =>
               `*${i + 1}.* ${item.name} (x${
                 item.quantity
-              })\n🔗 ${baseUrl}/product/${item.id}`
+              })\n🔗 ${baseUrl}/product/${item.id}`,
           )
           .join("\n\n") +
         `\n\n*Customer Name:* ${name}\n*Phone:* ${phone}`;
 
       const whatsappURL = `https://wa.me/${num}?text=${encodeURIComponent(
-        orderMessage
+        orderMessage,
       )}`;
       window.open(whatsappURL, "_blank");
 
