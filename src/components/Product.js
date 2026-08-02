@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FaCar, FaWhatsapp } from "react-icons/fa";
+import { FaCar } from "react-icons/fa";
 import products from "../product";
 import autoParts from "../autoparts"; // Import auto parts separately
 import { Link } from "react-router-dom";
@@ -30,9 +30,9 @@ function Product() {
     setShowCart(false);
   };
 
-  const num = process.env.REACT_APP_MOBILE;
+  // const num = process.env.REACT_APP_MOBILE;
 
-  const customMsg = "Thank you for contacting OJIAKAANU NIG LTD" 
+  // const customMsg = "Thank you for contacting OJIAKAANU NIG LTD" 
 
   return (
     <section

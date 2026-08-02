@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { Menu, X } from "lucide-react";
 import { CartContext } from "./CartContext";
@@ -42,7 +42,7 @@ function Navbar() {
         >
           <img
             src={`${process.env.PUBLIC_URL}/images/logo.jpg`}
-            className="rounded-full"
+            className="rounded-full" alt="logo"
           />
         </button>
 

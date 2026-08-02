@@ -6,7 +6,7 @@ import {
   FaPhone,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 
 const Footer = () => {
@@ -30,7 +30,7 @@ const Footer = () => {
           className="w-20 text-blue-600 tracking-wide "
           onClick={() => scrollToSection(homeRef)}
         >
-          <img src={`${process.env.PUBLIC_URL}/images/logo.jpg`} className="rounded-full"/>
+          <img src={`${process.env.PUBLIC_URL}/images/logo.jpg` } alt="logo" className="rounded-full"/>
         </button>
           <p className="text-gray-300">
             Your trusted plug for quality imported vehicles and genuine motor
@@ -92,7 +92,7 @@ const Footer = () => {
               <FaInstagram />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/ojiakaanuautosnigltd/"
               className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full"
             >
               <FaTwitter />

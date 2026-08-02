@@ -1,13 +1,13 @@
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import Header from "./Header";
 import Product from "./Product";
 import About from "./About";
 import Contact from "./Contact";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import { motion } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { CartContext } from "./CartContext";
-import CustomerService from "./AIChatWidget";
+// import CustomerService from "./AIChatWidget";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function Home() {
@@ -23,23 +23,33 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const map = {
-      Home: homeRef,
-      Product: productRef,
-      "About Us": aboutRef,
-      "Contact Us": contactRef,
-    };
+  const map = {
+    Home: homeRef,
+    Product: productRef,
+    "About Us": aboutRef,
+    "Contact Us": contactRef,
+  };
 
-    const target = location.state?.scrollTo;
-    const targetRef = map[target];
+  const target = location.state?.scrollTo;
+  const targetRef = map[target];
 
-    if (targetRef?.current) {
-      setTimeout(() => {
-        scrollToSection(targetRef);
-        navigate(".", { replace: true }); // clear scroll state
-      }, 200);
-    }
-  }, [location]);
+  if (targetRef?.current) {
+    const timer = setTimeout(() => {
+      scrollToSection(targetRef);
+      navigate(".", { replace: true });
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }
+}, [
+  location,
+  homeRef,
+  productRef,
+  aboutRef,
+  contactRef,
+  scrollToSection,
+  navigate,
+]);;
 
   return (
     <motion.div
