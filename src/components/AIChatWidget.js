@@ -7,18 +7,16 @@ const AIChatWidget = () => {
   const webhook = process.env.REACT_APP_WEBHOOK;
 
   useEffect(() => {
+    if (!webhook) return;
+
     createChat({
       webhookUrl: webhook,
-
       mode: "window",
-
       showWelcomeScreen: false,
-
       initialMessages: [
         "👋 Welcome to Ojiakaanu Auto's!",
         "How can I help you today?",
       ],
-
       i18n: {
         en: {
           title: "Ojiakaanu Auto's",
@@ -29,13 +27,11 @@ const AIChatWidget = () => {
         },
       },
     });
-  }, []);
-
+  }, [webhook]); 
   return null;
 };
 
 export default AIChatWidget;
-
 
 
 // import React, { useState } from "react";
